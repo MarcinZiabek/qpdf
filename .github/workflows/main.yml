@@ -20,6 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: af66bf5670fcd3978692b4b2264f5a5a21d8c2cb
       - name: 'Run pre-build steps'
         run: build-scripts/prebuild ${{ secrets.GITHUB_TOKEN }}
       - name: 'Upload documentation for later build steps'

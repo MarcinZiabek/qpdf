@@ -2,22 +2,7 @@ name: QPDF Build
 env:
   QTEST_COLOR: 1
 on:
-  push:
-    branches:
-      - main
-      - build
-      - build/*
-    paths-ignore:
-      - 'ChangeLog'
-      - 'README*'
-      - 'TODO*'
-  pull_request:
-  schedule:
-    # Building regularly with cron makes it safe for us to use
-    # *-latest with runs-on. If a new version of tools or agents comes
-    # out, we'll find out fast if our builds break on it because we
-    # have reliable testing.
-    - cron: '12 4 * * 5'
+  workflow_dispatch:
 jobs:
   Prebuild:
     # Run steps that are needed by the Windows build but are easier to
